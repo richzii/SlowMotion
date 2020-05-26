@@ -793,9 +793,8 @@ MonoBehaviour:
   currentTime: 0
   startingTime: 3
   countdownTXT: {fileID: 123493166}
-  MinuteBox: {fileID: 0}
-  SecondBox: {fileID: 0}
-  MilliBox: {fileID: 0}
+  needle: {fileID: 1571566309}
+  carSpeed: 0
 --- !u!1001 &230208039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3169,9 +3168,8 @@ MonoBehaviour:
   currentTime: 0
   startingTime: 0
   countdownTXT: {fileID: 0}
-  MinuteBox: {fileID: 1616053634}
-  SecondBox: {fileID: 567639061}
-  MilliBox: {fileID: 1223916265}
+  needle: {fileID: 0}
+  carSpeed: 0
 --- !u!4 &1158863432
 Transform:
   m_ObjectHideFlags: 0

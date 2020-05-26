@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    // Countdown
     public float currentTime;
     public float startingTime;
     [SerializeField] Text countdownTXT;
 
-    public static int MinuteCount;
-    public static int SecondCount;
-    public static float MilliCount;
-    public static string MilliDisplay;
+    // Speedometer
+    public GameObject needle;
+    private float startPosition = 220f, endPosition = -49f;
+    private float desiredPosition;
+    public float carSpeed;
 
-    public GameObject MinuteBox;
-    public GameObject SecondBox;
-    public GameObject MilliBox;
-
+    // Countdown
     void Start()
     {
         currentTime = startingTime;
@@ -45,5 +44,20 @@ public class GameManager : MonoBehaviour
     private void UpdateCountdownText()
     {
         countdownTXT.text = currentTime.ToString("0");
+    }
+
+    // Speedometer
+    public void updateNeedle()
+    {
+        desiredPosition = startPosition - endPosition;
+        float temp = carSpeed / 180;
+        needle.transform.eulerAngles = new Vector3(0, 0, (startPosition - temp * desiredPosition));
+    }
+
+    private void Update()
+    {
+        CarController CC = FindObjectOfType<CarController>();
+        carSpeed = CC.CurrentSpeed;
+        updateNeedle();
     }
 }
