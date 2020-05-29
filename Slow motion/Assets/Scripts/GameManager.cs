@@ -25,16 +25,16 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CountDown()
     {
-        CarUserControl control = FindObjectOfType<CarUserControl>(); //Atrodam control refernci ainaa. Var ari Serializet ar [SerializeField] un nemeklet
-        control.enabled = false; //disablo komponentes darbibu (Start / Update izpildi)
+        CarUserControl control = FindObjectOfType<CarUserControl>();
+        control.enabled = false;
 
-        UpdateCountdownText(); // Nodrosinam, ka teksts jau sakuma parada counter vertibu
+        UpdateCountdownText(); 
 
         while (currentTime > 0)
         {
-            yield return new WaitForSeconds(1f); // nogaidam vienu sekundi
-            currentTime--; //samazinam laika counter par vienu sekundi
-            UpdateCountdownText(); // updeitojam tekxtu
+            yield return new WaitForSeconds(1f); 
+            currentTime--; 
+            UpdateCountdownText(); 
         }
 
         countdownTXT.text = "";

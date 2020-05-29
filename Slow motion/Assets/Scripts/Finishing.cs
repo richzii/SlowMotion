@@ -7,6 +7,11 @@ public class Finishing : MonoBehaviour
 {
     public Camera normalCamera;
     public Camera finishCamera;
+    [SerializeField] Text resultTxt;
+    [SerializeField] Text lapTimeTxt;
+
+    public float carSpeed;
+    static float endSpeed = 0.0f;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -15,6 +20,9 @@ public class Finishing : MonoBehaviour
             Debug.Log("Car has reached the finish");
             control.enabled = false;
             ShowFinish();
+            if (lapTimeTxt.text != "") {
+                resultTxt.text = lapTimeTxt.text;
+            }
         }
 
         void ShowFinish() {

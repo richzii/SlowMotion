@@ -10,11 +10,11 @@ public class timer : MonoBehaviour
     private float time;
 
     void Update() {
+  
         if (startTimer == 0) {
             Timer.GetComponent<Text>().text = "";
         }
         else {
-
             time += Time.deltaTime;
 
             var minutes = time / 60; 
