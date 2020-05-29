@@ -1,17 +1,19 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 using UnityEngine.UI;
 
 public class controlTimer : MonoBehaviour
 {
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    CarUserControl control = FindObjectOfType<CarUserControl>();
+    void OnCollisionEnter(Collision collision)
     {
-        if (hit.gameObject.name == "startRace")
+        if (collision.gameObject.name == "InvisibleStartLine")
         {
             setTimer(1);
         }
 
-        if (hit.gameObject.name == "finishRace")
+        if (collision.gameObject.name == "InvisibleFinishLine")
         {
             setTimer(0);
         }
