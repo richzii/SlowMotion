@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 using UnityEngine.UI;
 
@@ -26,8 +25,7 @@ public class Finishing : MonoBehaviour
         }
 
         void ShowFinish() {
-            normalCamera.enabled = false;
-            finishCamera.enabled = true;
+            finishCamera.depth = Camera.main.depth + 1;
         }
     }
 }
